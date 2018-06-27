@@ -1,0 +1,91 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+          xmlns:form="http://www.springframework.org/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <jsp:directive.page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <html>
+    <head>
+        <title>Task</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"/>
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"/>
+    </head>
+    <body>
+    <div class="container">
+
+    <h1 class="h1">Bug add</h1>
+
+    <form:form modelAttribute="bug" id="projectBugAdd" method="post" enctype="multipart/form-data">
+
+        <c:if test="${not empty message}">
+            <div class="alert alert-danger">
+                <div id="message" class="${message.type}">${message.message}</div>
+            </div>
+        </c:if>
+
+        <div class="form-group">
+            <form:label path="title">Title: </form:label>
+            <form:input cssClass="form-control" path="title"/>
+            <div>
+                <form:errors path="title" cssClass="error"/>
+            </div>
+            <br/>
+        </div>
+
+        <div class="form-group">
+            <form:label path="summary">Summary: </form:label>
+            <form:textarea cssClass="form-control" path="summary" cols="60" rows="1" id="projectDescription"/>
+            <div>
+                <form:errors path="summary" cssClass="error"/>
+            </div>
+            <br/>
+        </div>
+
+        <div class="form-group">
+            <form:label path="description">Description: </form:label>
+            <form:textarea cssClass="form-control" path="description" cols="60" rows="10" id="bugDescription"/>
+            <div>
+                <form:errors path="description" cssClass="error"/>
+            </div>
+            <br/>
+        </div>
+
+        <div class="form-group">
+            <form:label path="stepToReproduce">Step to Reproduce: </form:label>
+            <form:textarea cssClass="form-control" path="stepToReproduce" cols="60" rows="10" id="projectDescription"/>
+            <div>
+                <form:errors path="stepToReproduce" cssClass="error"/>
+            </div>
+            <br/>
+        </div>
+
+        <div class="form-group">
+            <form:label path="date">Date: </form:label>
+            <form:input cssClass="form-control" path="date"/>
+            <div>
+                <form:errors path="date" cssClass="error"/>
+            </div>
+            <br/>
+        </div>
+
+        <div class="form-group">
+            <label for="file">
+                Screenshot
+            </label>
+            <input class="form-control" name="file" type="file"/>
+            <br/>
+        </div>
+
+        <form:hidden path="image"/>
+        <form:hidden path="project.id" value="${project.id}"/>
+
+        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-dark" type="reset">Reset</button>
+    </form:form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    </body>
+    </html>
+
+</jsp:root>

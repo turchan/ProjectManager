@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+          xmlns:spring="http://www.springframework.org/tags" xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:joda="http://www.joda.org/joda/time/tags">
+
+    <jsp:directive.page contentType="text/html; charset=utf-8" pageEncoding="UTF-8" language="java"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:url value="/projects" var="showProjectUrl"/>
+    <spring:url value="/projects/create" var="createProject"/>
+
+    <html>
+    <head><title>Projects</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"/>
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"/>
+    </head>
+    <body>
+
+    <div class="container-fluid">
+
+    <h1>Projects</h1>
+        <div class="table table-striped">
+            <c:if test="${not empty projectList}">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Customer</th>
+                        <th>Date of start</th>
+                        <th>Date of end</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${projectList}" var="project">
+                        <tr>
+                            <td><a href="${showProjectUrl}/${project.id}">${project.title}</a></td>
+                            <td>${project.customer}</td>
+                            <td><joda:format value="${project.dateOfStart}" pattern="yyyy-MM-dd"/></td>
+                            <td><joda:format value="${project.dateOfEnd}" pattern="yyyy-MM-dd"/></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </c:if>
+        </div>
+        <div>
+            <a class="btn btn-success" href="${createProject}?form">Create Project</a>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    </body>
+    </html>
+</jsp:root>

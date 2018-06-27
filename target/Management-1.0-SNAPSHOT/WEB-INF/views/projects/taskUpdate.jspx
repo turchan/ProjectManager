@@ -1,0 +1,98 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+          xmlns:form="http://www.springframework.org/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:spring="http://java.sun.com/jsp/jstl/core">
+    <jsp:directive.page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:url value="/projects" var="searchUsers"/>
+    <spring:url value="/projects" var="deleteUser"/>
+
+    <html>
+    <head>
+        <title>Update Task</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"/>
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"/>
+    </head>
+    <body>
+    <div class="container-fluid">
+
+        <h1 class="h1">Update Task</h1>
+
+            <form:form modelAttribute="task" id="taskUpdateForm" method="post">
+
+                <c:if test="${not empty message}">
+                    <div class="alert alert-danger">
+                        <div id="message" class="${message.type}">${message.message}</div>
+                    </div>
+                </c:if>
+
+                <div class="form-group">
+                    <form:label path="title">Title: </form:label>
+                    <form:input cssClass="form-control" path="title"/>
+                    <div>
+                        <form:errors path="title" cssClass="error"/>
+                    </div>
+                    <br/>
+                </div>
+
+                <div class="form-group">
+                    <form:label path="description">Description: </form:label>
+                    <form:textarea cssClass="form-control" path="description" cols="60" rows="10" id="projectDescriprion"/>
+                    <div>
+                        <form:errors path="description" cssClass="error"/>
+                    </div>
+                    <br/>
+                </div>
+
+                <div class="form-group">
+                    <form:label path="taskPriority.id">Severity: </form:label>
+                    <form:select cssClass="form-control" path="taskPriority.id">
+                        <c:forEach items="${taskPriority}" var="taskPriority">
+                            <form:option value="${taskPriority.id}"/>
+                        </c:forEach>
+                    </form:select>
+                    <br/>
+                </div>
+
+                <div class="form-group">
+                    <form:label path="taskStatus.id">Severity: </form:label>
+                    <form:select cssClass="form-control" path="taskStatus.id">
+                        <c:forEach items="${taskStatus}" var="taskStatus">
+                            <form:option value="${taskStatus.id}"/>
+                        </c:forEach>
+                    </form:select>
+                    <br/>
+                </div>
+
+                <div class="form-group">
+                    <form:label path="dateOfStart">Date of Start: </form:label>
+                    <form:input cssClass="form-control" path="dateOfStart"/>
+                    <div>
+                        <form:errors path="dateOfStart" cssClass="error"/>
+                    </div>
+                    <br/>
+                </div>
+
+                <div class="form-group">
+                    <form:label path="dateOfEnd">Date of End: </form:label>
+                    <form:input cssClass="form-control" path="dateOfEnd"/>
+                    <div>
+                        <form:errors path="dateOfEnd" cssClass="error"/>
+                    </div>
+                    <br/>
+                </div>
+
+                <form:hidden path="project.id" value="${project.id}"/>
+
+                <button class="btn btn-success" type="submit">Submit</button>
+                <button class="btn btn-dark" type="reset">Reset</button>
+
+            </form:form>
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    </body>
+    </html>
+</jsp:root>

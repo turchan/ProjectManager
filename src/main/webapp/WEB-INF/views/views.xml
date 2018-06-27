@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition extends="default" name="projects/list">
+        <put-attribute name="body" value="/WEB-INF/views/projects/list.jspx"/>
+    </definition>
+    <definition extends="default" name="Security/login">
+        <put-attribute name="body" value="/WEB-INF/views/Security/login.jspx"/>
+    </definition>
+    <definition extends="default" name="Security/Registration">
+        <put-attribute name="body" value="/WEB-INF/views/Security/Registration.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/show">
+        <put-attribute name="body" value="/WEB-INF/views/projects/show.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/update">
+        <put-attribute name="body" value="/WEB-INF/views/projects/update.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/create">
+        <put-attribute name="body" value="/WEB-INF/views/projects/create.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/searchUser">
+        <put-attribute name="body" value="/WEB-INF/views/projects/searchUser.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/riskAdd">
+        <put-attribute name="body" value="/WEB-INF/views/projects/riskAdd.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/taskAdd">
+        <put-attribute name="body" value="/WEB-INF/views/projects/taskAdd.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/taskShow">
+        <put-attribute name="body" value="/WEB-INF/views/projects/taskShow.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/taskUpdate">
+        <put-attribute name="body" value="/WEB-INF/views/projects/taskUpdate.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/taskSearchUser">
+        <put-attribute name="body" value="/WEB-INF/views/projects/taskSearchUser.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/addBug">
+        <put-attribute name="body" value="/WEB-INF/views/projects/addBug.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/showBug">
+        <put-attribute name="body" value="/WEB-INF/views/projects/showBug.jspx"/>
+    </definition>
+    <definition extends="default" name="projects/bugUpdate">
+        <put-attribute name="body" value="/WEB-INF/views/projects/bugUpdate.jspx"/>
+    </definition>
+</tiles-definitions>

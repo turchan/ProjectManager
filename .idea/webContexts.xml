@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/projects/list.jspx" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/projects" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/projects/show.jspx" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/projects" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/projects/update.jspx" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/projects" />
+      </map>
+    </option>
+  </component>
+</project>
